@@ -36,7 +36,7 @@ function desenhar(){
         if(FILTRO.trim()){
             const expReg = eval(`/${FILTRO.trim().replace(/[^\d\w]+/g,'.*')}/i`)
             data = data.filter( usuario => {
-                return expReg.test( usuario.nome ) || expReg.test( usuario.fantasia ) || expReg.test( usuario.documento ) || expReg.test( usuario.endereco )
+                return expReg.test( usuario.nome ) || expReg.test( usuario.telefone ) || expReg.test( usuario.documento ) || expReg.test( usuario.endereco )
             } )
         }
         data = data
@@ -47,7 +47,7 @@ function desenhar(){
                 return `<tr>
                         <td>${usuario.id}</td>
                         <td>${usuario.nome}</td>
-                        <td>${usuario.fantasia}</td>
+                        <td>${usuario.telefone}</td>
                         <td>${usuario.documento}</td>
                         <td>${usuario.endereco}</td>
                         <td>
@@ -60,21 +60,21 @@ function desenhar(){
     }
 }
 
-function insertUsuario(nome, fantasia, documento, endereco){
+function insertUsuario(nome, telefone, documento, endereco){
     const id = listaRegistros.ultimoIdGerado + 1;
     listaRegistros.ultimoIdGerado = id;
     listaRegistros.usuarios.push({
-        id, nome, fantasia, documento, endereco
+        id, nome, telefone, documento, endereco
     })
     gravarBD()
     desenhar()
     vizualizar('lista')
 }
 
-function editUsuario(id, nome, fantasia, documento, endereco){
+function editUsuario(id, nome, telefone, documento, endereco){
     var usuario = listaRegistros.usuarios.find( usuario => usuario.id == id )
     usuario.nome = nome;
-    usuario.fantasia = fantasia;
+    usuario.telefone = telefone;
     usuario.documento = documento;
     usuario.endereco = endereco;
     gravarBD()
@@ -99,7 +99,7 @@ function perguntarSeDeleta(id){
 
 function limparEdicao(){
     document.getElementById('nome').value = ''
-    document.getElementById('fantasia').value = ''
+    document.getElementById('telefone').value = ''
     document.getElementById('documento').value = ''
     document.getElementById('endereco').value = ''
 }
@@ -113,7 +113,7 @@ function vizualizar(pagina, novo=false, id=null){
             if(usuario){
                 document.getElementById('id').value = usuario.id
                 document.getElementById('nome').value = usuario.nome
-                document.getElementById('fantasia').value = usuario.fantasia
+                document.getElementById('telefone').value = usuario.telefone
                 document.getElementById('documento').value = usuario.documento
                 document.getElementById('endereco').value = usuario.endereco
             }
@@ -129,14 +129,14 @@ function submeter(e){
     const data = {
         id: document.getElementById('id').value,
         nome: document.getElementById('nome').value,
-        fantasia: document.getElementById('fantasia').value,
+        telefone: document.getElementById('telefone').value,
         documento: document.getElementById('documento').value,
         endereco: document.getElementById('endereco').value,
     }
     if(data.id){
-        editUsuario(data.id, data.nome, data.fantasia, data.documento, data.endereco)
+        editUsuario(data.id, data.nome, data.telefone, data.documento, data.endereco)
     }else{
-        insertUsuario( data.nome, data.fantasia, data.documento, data.endereco)
+        insertUsuario( data.nome, data.telefone, data.documento, data.endereco)
     }
 }
 
