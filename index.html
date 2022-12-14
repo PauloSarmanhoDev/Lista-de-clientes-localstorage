@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clientes</title>
+    <script type='text/javascript' src="/Clientes/main.js"></script>
+    <link href="/Clientes/style_clientes.css" rel="stylesheet">
+</head>
+<body page='lista'>
+    
+    <div id='listaRegistros'>
+
+        <div style='display: flex;'>
+            <input style='flex:1' placeholder="PESQUISAR POR NOME" autofocus id='inputPesquisa' />
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Fantasia</th>
+                    <th>Documento</th>
+                    <th>Endereço</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody id='listaRegistrosBody'></tbody>
+        </table>
+
+        <div>
+            <button onclick="vizualizar('cadastro', true)">Novo usuário</button>
+        </div>
+
+    </div>
+
+    <form id='cadastroRegistro'>
+
+        <div class='label'>
+            <div>ID</div>
+            <div>
+                <input type='number' readonly id='id' />
+            </div>
+        </div>
+
+        <div class='label'>
+            <div>Nome</div>
+            <div>
+                <input id='nome' />
+            </div>
+        </div>
+
+        <div class='label'>
+            <div>Fantasia</div>
+            <div>
+                <input type='text' id='fantasia' />
+            </div>
+        </div>
+
+        <div class='label'>
+            <div>Documento</div>
+            <div>
+                <input type='text' id='documento' />
+            </div>
+        </div>
+
+        <div class='label'>
+            <div>Endereço</div>
+            <div>
+                <input type='text' id='endereco' />
+            </div>
+        </div>
+
+        <div>
+            <button>Salvar</button>
+            <button onclick="vizualizar('lista')" class="cinza" type='button'>Cancelar</button>
+        </div>
+
+    </form>
+
+</body>
+</html>
