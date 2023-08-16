@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clientes</title>
-    <script type='text/javascript' src="/main.js"></script>
-    <link href="/style_clientes.css" rel="stylesheet">
+    <script type='text/javascript' src="/js/main.js"></script>
+    <link href="/css/style_clientes.css" rel="stylesheet">
 </head>
 <body page='lista'>
     
@@ -15,6 +15,7 @@
             <input style='flex:1' placeholder="PESQUISAR POR NOME" autofocus id='inputPesquisa' />
         </div>
 
+        <div>
         <table>
             <thead>
                 <tr>
@@ -28,6 +29,7 @@
             </thead>
             <tbody id='listaRegistrosBody'></tbody>
         </table>
+        </div>
 
         <div>
             <button onclick="vizualizar('cadastro', true)">Novo usuário</button>
