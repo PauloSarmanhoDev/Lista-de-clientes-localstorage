@@ -6,11 +6,16 @@
 }
 body[page=lista] 
 
-#listaRegistros{ display: block;}
+#listaRegistros{ 
+    display: block;
+}
 
 body[page=cadastro] 
 
-#cadastroRegistro{ display: flex; }
+#cadastroRegistro{
+    display: flex;
+    border-radius: 10px;
+}
 
 body{
     font-family: Arial, Helvetica, sans-serif;
@@ -20,13 +25,24 @@ body{
     margin-right: 100px;
     margin-top: 50px;
 }
+
 table{
     width: 100%;
     border-collapse: collapse;
     border-radius: 10px;
 }
+thead{
+    border-radius: 10px;
+}
 
-table th, table td{
+table th{
+    font-size: 14px;
+    padding: 10px 15px;
+    border: solid 1px rgb(228, 228, 228);
+    background-color: rgb(255, 255, 255);
+}
+
+table td{
     font-size: 14px;
     padding: 10px 15px;
     border: solid 1px rgb(228, 228, 228);
